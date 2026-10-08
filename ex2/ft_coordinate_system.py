@@ -17,7 +17,7 @@ def get_player_pos() -> tuple:
             idx = 0
             while (idx < 3):
                 try:
-                        coords_tup.append(float(coords[idx]))
+                    coords_tup.append(float(coords[idx]))
                 except ValueError as error:
                     raise ValueError(error)
                 idx += 1
@@ -27,9 +27,10 @@ def get_player_pos() -> tuple:
 
 
 def clc_dst(crds1: tuple, crds2: tuple) -> float:
-    return (round(float(math.sqrt((crds2[0] - crds1[0])**2 +
-                                  (crds2[1] - crds1[1])**2 +
-                                  (crds2[2] - crds1[2])**2)), 4))
+    (x1, y1, z1) = crds1
+    (x2, y2, z2) = crds2
+    rslt = math.sqrt((x2 - x1)**2 + (y2 - y1)**2 + (z2 - z1)**2)
+    return (round(float(rslt), 4))
 
 
 if __name__ == "__main__":
