@@ -3,11 +3,11 @@
 import math
 
 
-def get_player_pos() -> tuple:
+def get_player_pos() -> tuple[float, ...]:
     while (True):
         try:
-            coords: list = input("Enter new coordinates as floats in format "
-                                 "'x,y,z': ").split(",")
+            coords: list[str] = input("Enter new coordinates as floats "
+                                      "in format 'x,y,z': ").split(",")
             idx = 0
             for _ in coords:
                 idx += 1
@@ -26,11 +26,11 @@ def get_player_pos() -> tuple:
             print(error)
 
 
-def clc_dst(crds1: tuple, crds2: tuple) -> float:
+def clc_dst(crds1: tuple[float, ...], crds2: tuple[float, ...]) -> float:
     (x1, y1, z1) = crds1
     (x2, y2, z2) = crds2
     rslt = math.sqrt((x2 - x1)**2 + (y2 - y1)**2 + (z2 - z1)**2)
-    return (round(float(rslt), 4))
+    return (round(rslt, 4))
 
 
 if __name__ == "__main__":
